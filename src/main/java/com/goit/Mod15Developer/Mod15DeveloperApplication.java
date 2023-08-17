@@ -35,7 +35,7 @@ public class Mod15DeveloperApplication {
 		user2.setPassword(passwordEncoder.encode("jdbcDefault"));
 		user2.setEnabled(String.valueOf(true));
 		user2.setEmail("user@test.com");
-	UserEntity user3 = new UserEntity();
+	 UserEntity user3 = new UserEntity();
 		user3.setUsername("user1");
 		user3.setPassword(passwordEncoder.encode("passuser1"));
 		user3.setEnabled(String.valueOf(true));
