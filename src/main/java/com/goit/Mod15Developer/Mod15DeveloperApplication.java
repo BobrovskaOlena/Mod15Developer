@@ -22,8 +22,9 @@ public class Mod15DeveloperApplication {
 
 		UserRepository userRepository = context.getBean(UserRepository.class);
 		PasswordEncoder passwordEncoder = context.getBean(PasswordEncoder.class);
+		AuthorityRepository authorityRepository = context.getBean(AuthorityRepository.class);
 
-	// Create and save a user
+		// Create and save a user
 	UserEntity user1 = new UserEntity();
         user1.setUsername("admin");
         user1.setPassword(passwordEncoder.encode("passadmin"));
@@ -31,19 +32,17 @@ public class Mod15DeveloperApplication {
         user1.setEmail("admin@test.com");
 	UserEntity user2 = new UserEntity();
 		user2.setUsername("user");
-		user2.setPassword("jdbcDefault");
+		user2.setPassword(passwordEncoder.encode("jdbcDefault"));
 		user2.setEnabled(String.valueOf(true));
 		user2.setEmail("user@test.com");
 	UserEntity user3 = new UserEntity();
 		user3.setUsername("user1");
-		user3.setPassword("passuser1");
+		user3.setPassword(passwordEncoder.encode("passuser1"));
 		user3.setEnabled(String.valueOf(true));
 		user3.setEmail("user1@test.com");
 		userRepository.save(user1);
         userRepository.save(user2);
 		userRepository.save(user3);
-
-		AuthorityRepository authorityRepository = context.getBean(AuthorityRepository.class);
 
 		AuthorityEntity authority = new AuthorityEntity();
 		authority.setUser(user1);
