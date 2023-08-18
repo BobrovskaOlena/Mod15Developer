@@ -17,10 +17,10 @@
     </style>
 </head>
 <body>
-    <div class="container mt-4">
-        <h1 class="mb-4" th:text="'Notes count: ' + ${notes.size()}"></h1>
+<div class="container mt-4">
+    <h1 class="mb-4" th:text="'Notes count: ' + ${notes.size()}"></h1>
 
-        <form th:action="@{/note/list}" method="post">
+    <form th:action="@{/note/list}" method="post">
         <div class="mb-3">
             <label for="title" class="form-label">Title:</label>
             <input type="text" name="title" id="title" class="form-control" />
@@ -33,7 +33,7 @@
 
         <div>
             <button type="submit" class="btn btn-primary">Send</button>
-    </div>
+        </div>
     </form>
 
     <div th:each="note : ${notes}" class="card mt-4">
@@ -41,15 +41,15 @@
             <h5 class="card-title" th:text="'id: ' + ${note.id}"></h5>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Title: ' + ${note.title}"></h6>
             <p class="card-text" th:text="'Content: ' + ${note.content}"></p>
-                <form th:action="@{/note/edit}" method="get">
-                    <input type="hidden" name="id" th:value="${note.id}" />
-                    <button type="submit" class="btn btn-warning">Edit</button>
-                </form>
+            <form th:action="@{/note/edit}" method="get">
+                <input type="hidden" name="id" th:value="${note.id}" />
+                <button type="submit" class="btn btn-warning">Edit</button>
+            </form>
 
-                <form th:action="@{/note/delete}" method="post" class="mt-2">
-                    <input type="hidden" name="id" th:value="${note.id}" />
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+            <form th:action="@{/note/delete}" method="post" class="mt-2">
+                <input type="hidden" name="id" th:value="${note.id}" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
     </div>
 </div>

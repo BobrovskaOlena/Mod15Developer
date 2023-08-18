@@ -44,7 +44,6 @@ public class NoteService {
         updatingNote.setContent(note.getContent());
         noteRepository.save(updatingNote);
     }
-
     public NoteEntity getById(Long id) {
         return noteRepository.findById(id).orElse(null);
     }

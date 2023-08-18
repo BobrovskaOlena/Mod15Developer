@@ -24,7 +24,7 @@ public class NoteController {
     }
     @GetMapping("/list")
     public ModelAndView showNoteList(){
-        List<NoteEntity>notes = noteService.listAll();
+        List<NoteEntity> notes = noteService.listAll();
         ModelAndView result = new ModelAndView("list");
         result.addObject("notes", notes);
         return result;
